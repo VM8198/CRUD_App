@@ -1,0 +1,15 @@
+<div class="col-md-4 margin-25" id="form">
+  <form id="post" method="post" name="Contact" *ngIf="detailsToUpdate">
+    <div class="form-group">
+     <label for="Name">First Name</label>
+     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="detailsToUpdate.first_name"  />
+   </div>
+   <div class="form-group">
+     <label for="name">Last Name</label>
+     <input type="text" id="phone" name="phone" required class="form-control" [(ngModel)]="detailsToUpdate.last_name" />
+   </div>	
+   <div class="form-group">
+    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="updateStudent(detailsToUpdate)" >
+  </div>
+</form>
+</div>

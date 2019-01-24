@@ -1,0 +1,15 @@
+<div class="col-md-4 margin-25" id="form">
+  <form id="form" method="post" name="Contact" *ngIf="detailsToUpdate">
+    <div class="form-group">
+     <label for="Name">First Name</label>
+     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="detailsToUpdate.name"  />
+   </div>
+   <div class="form-group">
+     <label for="grade">Grade</label>
+     <input type="text" id="grade" name="grade" required class="form-control" [(ngModel)]="detailsToUpdate.grade" />
+   </div>	
+   <div class="form-group">
+    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="updateSubject(detailsToUpdate)">
+  </div>
+</form>
+</div>

@@ -1,50 +1,37 @@
-<div class="row margin-top-25">
-	<div class="col-md-4">
-		<form id="user" name="Contact">
-		<div class="form-group">
-			<label for="Name">Name</label>
-			<input id="name" name="name" required class="form-control" />    
+<div class="row margin-top-25" style="min-height: 500px;">
 
-		</div>
-		<div class="form-group">
-			<label for="phone no">Phone no:</label>
-			<input id="phone" name="phone" required class="form-control" />
-		</div>		
-		<div class="form-group">
-			<input type="submit" id="btnsubmit" class="btn btn-success" (click)="addData()">
-		</div>
-	</form>
+ <div class="col-md-4" id="form">
+  <form id="user" method="post" name="Contact">
+    <div class="form-group">
+     <label for="Name">Name</label>
+     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="details.name"/>
+   </div>
+   <div class="form-group">
+     <label for="grade">Grade</label>
+     <input type="text" id="grade" name="grade" required class="form-control" [(ngModel)]="details.grade"/>
+   </div> 
+   <div class="form-group">
+    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="addSubjects(details)" >
+  </div>
+</form>
 </div>
-<div class="col-md-8">
-	<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname	</th>
-        <th>Lastname</th>
-        <th>Phone</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="col-md-8" id="table">
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Grade</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let subject of subjects[0]">
+      <td>{{subject.name}}</td>
+      <td>{{subject.grade}}</td>
+      <td><button><a [routerLink] = "['/updateSubject',subject._id]">Update</a></button><button (click)="deleteSubject(subject._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>

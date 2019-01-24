@@ -1,52 +1,37 @@
 <div class="row margin-top-25" style="min-height: 500px;">
 
-	<div class="col-md-4" id="form">
-		<form id="user" name="Contact">
-		<div class="form-group">
-			<label for="Name">Name</label>
-			<input id="name" name="name" required class="form-control" [(ngModel)]="details.name"/>    
-
-		</div>
-		<div class="form-group">
-			<label for="phone no">Phone no:</label>
-			<input id="phone" name="phone" required class="form-control" [(ngModel)]="details.phone" /> 
-		</div>		
-
-		<div class="form-group">
-			<input type="submit" id="btnsubmit" class="btn btn-success" (click)="addData">
-		</div>
-	</form>
+ <div class="col-md-4" id="form">
+  <form id="user" method="post" name="Contact">
+    <div class="form-group">
+     <label for="Name">Name</label>
+     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="details.name"/>
+   </div>
+   <div class="form-group">
+     <label for="data">data</label>
+     <input type="text" id="post" name="post" required class="form-control" [(ngModel)]="details.data"/>
+   </div> 
+   <div class="form-group">
+    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="addPosts(details)" >
+  </div>
+</form>
 </div>
+
 <div class="col-md-8" id="table">
-	<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Phone</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Post name</th>
+      <th>Data</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let post of posts[0];let i=index">
+      <td>{{post.name}}</td>
+      <td>{{post.data}}</td>
+      <td><button><a [routerLink] = "['/updatePost',post._id]">Update</a></button><button (click)="deletePost(post._id,i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>

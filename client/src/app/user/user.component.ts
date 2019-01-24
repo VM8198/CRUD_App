@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { UserService } from '../../services/user.service'; 
 
 @Component({
@@ -8,8 +8,11 @@ import { UserService } from '../../services/user.service';
 })
 export class UserComponent implements OnInit {
 
-	constructor(public _userService: UserService) { }
+	constructor(public _userService: UserService,public change: ChangeDetectorRef) { }
 	
+	ngViewAfterChecked(){
+		this.change.detectChanges();
+	}
 
 	details = {
 		name: "",
@@ -30,6 +33,7 @@ users = [];
 	addData(details){		
 		this._userService.addData(details).subscribe(res=>{
 			console.log("RESPONSE From API",res);
+			this.users[0].push(res);
 		},err=>{
 			console.log("ERROR",err);
 		})	
@@ -38,6 +42,15 @@ users = [];
 	getUsers(){
 		this._userService.getUsers();
 	}
+
+
+	deleteUser(user_id,i){
+		console.log(this.users);
+		console.log("userid",user_id);
+		this._userService.deleteUser(user_id);
+		this.users.splice[0](i,1);
+	}
+
 }
 
 

@@ -5,6 +5,9 @@ import {StudentComponent} from './student/student.component';
 import {PostComponent} from './post/post.component';
 import {SubjectComponent} from './subject/subject.component';
 import {UpdateFormComponent} from './update-form/update-form.component';
+import {UpdatePostComponent} from './update-post/update-post.component';
+import {UpdateStudentComponent} from './update-student/update-student.component';
+import {UpdateSubjectComponent} from './update-subject/update-subject.component';
 
 
 const routes: Routes = [
@@ -13,7 +16,11 @@ const routes: Routes = [
 	{path: 'post', component: PostComponent},
 	{path: 'student', component: StudentComponent},
 	{path: 'subject', component: SubjectComponent},
-	{path: 'update/:id', component: UpdateFormComponent }
+	{path: 'update/:id', component: UpdateFormComponent },
+	{path: 'updatePost/:id', component: UpdatePostComponent},
+	{path: 'updateStudent/:id', component: UpdateStudentComponent},
+	{path: 'updateSubject/:id', component: UpdateSubjectComponent}
+	
 
 ];
 

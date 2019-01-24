@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^10.12.18",
     "cors": "^2.8.5",
     "cors-anywhere": "^0.4.1",
     "express": "^4.16.4",

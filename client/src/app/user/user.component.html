@@ -26,10 +26,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let user of users[0]">
+    <tr *ngFor = "let user of users[0];let i=index">
       <td>{{user.name}}</td>
       <td>{{user.phone}}</td>
-      <td><button><a [routerLink] = "['/update',user._id]">Update</a></button><button>Delete</button></td>
+      <td><button><a [routerLink] = "['/update',user._id]">Update</a></button><button (click)="deleteUser(user._id,i)">Delete</button></td>
     </tr>
   </tbody>
 </table>

@@ -19,15 +19,7 @@ userController.getUsers = function(req,res){
 	})
 }
 
-userController.updatedUser = function(req,res){
-	userid = req.body._id;
-	userModel.findOneAndUpdate({_id: userid},req.body,function(err,updatedUser){
-		console.log(updatedUser);
-		res.send(updatedUser);
-	})
-}
-
-userController.getUserById=function(req,res){
+userController.getUserById = function(req,res){
 	userModel.find({_id: req.params.id},function(err,foundUser)
 	{
 		console.log("params",req.params.id);
@@ -37,47 +29,25 @@ userController.getUserById=function(req,res){
 }
 
 userController.updateUser = function(req,res){
-
 	var userid = req.body._id;
+	var data = {name: req.body.name, phone: req.body.phone};
 	userModel
-	.findAndUpdate({_id: userid},req.body,{upsert:true},function(err,updatedUser){
-		console.log(updatedUser);
+	.findOneAndUpdate({_id: userid},data,{upsert: true, new: true},function(err,updatedUser){
+		console.log("req.body : " ,req.body);
+		console.log("updated User",updatedUser || err);
 		res.send(updatedUser);
-	})
+	})	
 }
 
 
-// userController.deleteUser = function(req,res){
-
-// 	var userid = req.body.userid;
-// 	userModel.remove({_id: userid},function(err,deleteUser){
-// 		console.log(err,deleteUser);
-// 		res.send(deleteUser)
-// 	})
-// }
-
-
-// userController.getUserById=function(req,res){
-
-// 	userModel.find({_id: req.params.id},function(err,foundUser)
-// 	{
-// 		res.send(err || foundUser);
-// 	})
-// }
-
-// userController.getUsers = function(req,res){
-// 	userModel
-// 	.find({})
-// 	.populate('post')
-// 	.exec(function(err,users){
-// 		res.send({users:users});
-// 	})
-// }
-
-
-
-
-
+userController.deleteuser = function(req,res){
+console.log("params",req.params);
+	var userid = req.params.id;
+	userModel.remove({_id: userid},function(err,deleteUser){
+		console.log("id of deleted user :",userid);
+		res.send(deleteUser);
+	})
+}
 
 
 module.exports = userController;

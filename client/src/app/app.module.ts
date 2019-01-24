@@ -13,7 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UpdateFormComponent } from './update-form/update-form.component'; 
+import { UpdateFormComponent } from './update-form/update-form.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
+import { UpdateSubjectComponent } from './update-subject/update-subject.component'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { UpdateFormComponent } from './update-form/update-form.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    UpdateFormComponent
+    UpdateFormComponent,
+    UpdatePostComponent,
+    UpdateStudentComponent,
+    UpdateSubjectComponent
   ],
   imports: [
     BrowserModule,

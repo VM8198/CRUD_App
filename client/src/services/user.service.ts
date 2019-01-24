@@ -36,7 +36,21 @@ foundUser:any;
 	}
 
 	updateUser(body){
-			return this.http.put("http://localhost:4000/updateuser",body);
+			return this.http.put("http://localhost:4000/updateuser",body).subscribe(res=>{
+				console.log("service_body : ",res);
+			},err=>{
+				console.log(err);
+			});
+	}
+
+	deleteUser(uid){
+		console.log("uid :",uid);
+		var id = uid;
+		return this.http.delete("http://localhost:4000/deleteuser/"+id).subscribe(res=>{
+			console.log("delete from service :" ,res);
+		},err=>{
+			console.log(err);
+		})
 	}
 
 

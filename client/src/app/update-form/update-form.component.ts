@@ -15,19 +15,18 @@ export class UpdateFormComponent implements OnInit {
 	detailsToUpdate:any;
 	constructor(private route: ActivatedRoute,public _userService: UserService) { 
 		this.route.queryParams.subscribe(params=>{
-			this.id = this.route.snapshot.paramMap.get('id');
-			console.log(this.id);
+			this.id = this.route.snapshot.paramMap.get('id');			
 			this._userService.getUserById(this.id);
 		})
 	}
 
 	ngOnInit() {
-		setTimeout(()=>{
-			console.log(this._userService.foundUser)
+		setTimeout(()=>{			
 			this.detailsToUpdate = this._userService.foundUser[0];
 		},1000);
 	}
 	updateUser(detailsToUpdate){
-		this._userService.updateUser
+		console.log(".ts update array",this.detailsToUpdate);
+		this._userService.updateUser(this.detailsToUpdate);
 	}
 }

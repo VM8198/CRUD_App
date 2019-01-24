@@ -1,53 +1,37 @@
+<div class="row margin-top-25" style="min-height: 500px;">
 
-<div class="row margin-top-25">
-	<div class="col-md-4">
-		<form id="user" name="Contact">
-		<div class="form-group">
-			<label for="Name">Name</label>
-			<input id="name" name="name" required class="form-control" />    
-
-		</div>
-		<div class="form-group">
-			<label for="phone no">Phone no:</label>
-			<input id="phone" name="phone" required class="form-control" /> 
-
-		</div>		
-
-		<div class="form-group">
-			<input type="submit" id="btnsubmit" class="btn btn-success" (click)="addData()">
-		</div>
-	</form>
+ <div class="col-md-4" id="form">
+  <form id="user" method="post" name="Contact">
+    <div class="form-group">
+     <label for="Name">First_Name</label>
+     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="details.first_name"/>
+   </div>
+   <div class="form-group">
+     <label for="last name">Last_Name</label>
+     <input type="text" id="phone" name="phone" required class="form-control" [(ngModel)]="details.last_name"/>
+   </div> 
+   <div class="form-group">
+    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="addStudents(details)" >
+  </div>
+</form>
 </div>
-<div class="col-md-8">
-	<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Phone</th>
-        <th>Edit</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>Update</button><button>Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="col-md-8" id="table">
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>LastName</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let student of students[0]">
+      <td>{{student.first_name}}</td>
+      <td>{{student.last_name}}</td>
+      <td><button><a [routerLink] = "['/updateStudent',student._id]">Update</a></button><button (click)="deleteStudent(student._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
