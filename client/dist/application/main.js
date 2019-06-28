@@ -1045,7 +1045,7 @@ var UserComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "config", function() { return config; });
 var config = {
-    apiBaseUrl: apiBaseUrl
+    apiBaseUrl: 'http://54.185.16.135:4000/'
 };
 //# sourceMappingURL=config.js.map
 
