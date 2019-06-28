@@ -13,8 +13,8 @@ export class StudentComponent implements OnInit {
 	
 
 	details = {
-		name: "",
-		phone: ""
+		first_name: "",
+		last_name: ""
 	};
 
 	

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { config } from '../config'
  
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,13 @@ export class SubjectService {
   constructor(public http:HttpClient) { }
 
   addSubjects(body){
-		return this.http.post("http://localhost:4000/subject",body);
+		return this.http.post(config.apiBaseUrl+"/subject",body);
 	}
 
 	subject_services = [];
 
 	getSubjects(){
-	 		this.http.get("http://localhost:4000/subjects").subscribe(res=>{						
+	 		this.http.get(config.apiBaseUrl+"/subjects").subscribe(res=>{						
 			this.subject_services.push(res);			
 			console.log("service array",this.subject_services);
 			return this.subject_services;			
@@ -26,7 +27,7 @@ export class SubjectService {
 
 foundSubject:any;
 	getSubjectById(id){
-		this.http.get("http://localhost:4000/subject/"+id).subscribe(res=>{
+		this.http.get(config.apiBaseUrl+"/subject/"+id).subscribe(res=>{
 			console.log("foundSubject :",res);
 			return this.foundSubject = res;
 		},err=>{
@@ -35,7 +36,7 @@ foundSubject:any;
 	}
 
 	updateSubject(body){
-			return this.http.put("http://localhost:4000/updatesubject",body).subscribe(res=>{
+			return this.http.put(config.apiBaseUrl+"/updatesubject",body).subscribe(res=>{
 				console.log("service_body : ",res);
 			},err=>{
 				console.log(err);
@@ -45,7 +46,7 @@ foundSubject:any;
 	deleteSubject(uid){
 		console.log("uid :",uid);
 		var id = uid;
-		return this.http.delete("http://localhost:4000/deletesubject/"+id).subscribe(res=>{
+		return this.http.delete(config.apiBaseUrl+"/deletesubject/"+id).subscribe(res=>{
 			console.log("delete from service :" ,res);
 		},err=>{
 			console.log(err);
