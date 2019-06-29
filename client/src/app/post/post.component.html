@@ -26,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let post of posts[0];let i=index">
+    <tr *ngFor = "let post of posts;let i=index">
       <td>{{post.name}}</td>
       <td>{{post.data}}</td>
       <td><button><a [routerLink] = "['/updatePost',post._id]">Update</a></button><button (click)="deletePost(post._id,i)">Delete</button></td>

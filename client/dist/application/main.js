@@ -347,7 +347,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row margin-top-25\" style=\"min-height: 500px;\">\n\n <div class=\"col-md-4\" id=\"form\">\n  <form id=\"user\" method=\"post\" name=\"Contact\">\n    <div class=\"form-group\">\n     <label for=\"Name\">Name</label>\n     <input type=\"text\" id=\"name\" name=\"name\" required class=\"form-control\" [(ngModel)]=\"details.name\"/>\n   </div>\n   <div class=\"form-group\">\n     <label for=\"data\">data</label>\n     <input type=\"text\" id=\"post\" name=\"post\" required class=\"form-control\" [(ngModel)]=\"details.data\"/>\n   </div> \n   <div class=\"form-group\">\n    <input type=\"submit\" id=\"btnsubmit\" class=\"btn btn-success\" (click)=\"addPosts(details)\" >\n  </div>\n</form>\n</div>\n\n<div class=\"col-md-8\" id=\"table\">\n <table class=\"table table-bordered\">\n  <thead>\n    <tr>\n      <th>Post name</th>\n      <th>Data</th>\n      <th>Edit</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor = \"let post of posts[0];let i=index\">\n      <td>{{post.name}}</td>\n      <td>{{post.data}}</td>\n      <td><button><a [routerLink] = \"['/updatePost',post._id]\">Update</a></button><button (click)=\"deletePost(post._id,i)\">Delete</button></td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
+module.exports = "<div class=\"row margin-top-25\" style=\"min-height: 500px;\">\n\n <div class=\"col-md-4\" id=\"form\">\n  <form id=\"user\" method=\"post\" name=\"Contact\">\n    <div class=\"form-group\">\n     <label for=\"Name\">Name</label>\n     <input type=\"text\" id=\"name\" name=\"name\" required class=\"form-control\" [(ngModel)]=\"details.name\"/>\n   </div>\n   <div class=\"form-group\">\n     <label for=\"data\">data</label>\n     <input type=\"text\" id=\"post\" name=\"post\" required class=\"form-control\" [(ngModel)]=\"details.data\"/>\n   </div> \n   <div class=\"form-group\">\n    <input type=\"submit\" id=\"btnsubmit\" class=\"btn btn-success\" (click)=\"addPosts(details)\" >\n  </div>\n</form>\n</div>\n\n<div class=\"col-md-8\" id=\"table\">\n <table class=\"table table-bordered\">\n  <thead>\n    <tr>\n      <th>Post name</th>\n      <th>Data</th>\n      <th>Edit</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor = \"let post of posts;let i=index\">\n      <td>{{post.name}}</td>\n      <td>{{post.data}}</td>\n      <td><button><a [routerLink] = \"['/updatePost',post._id]\">Update</a></button><button (click)=\"deletePost(post._id,i)\">Delete</button></td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -391,7 +391,7 @@ var PostComponent = /** @class */ (function () {
         var _this = this;
         this._postService.addPost(details).subscribe(function (res) {
             console.log("RESPONSE From API", res);
-            _this.posts[0].push(res);
+            _this.posts.push(res);
         }, function (err) {
             console.log("ERROR", err);
         });
@@ -496,7 +496,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row margin-top-25\" style=\"min-height: 500px;\">\n\n <div class=\"col-md-4\" id=\"form\">\n  <form id=\"user\" method=\"post\" name=\"Contact\">\n    <div class=\"form-group\">\n     <label for=\"Name\">First_Name</label>\n     <input type=\"text\" id=\"name\" name=\"name\" required class=\"form-control\" [(ngModel)]=\"details.first_name\"/>\n   </div>\n   <div class=\"form-group\">\n     <label for=\"last name\">Last_Name</label>\n     <input type=\"text\" id=\"phone\" name=\"phone\" required class=\"form-control\" [(ngModel)]=\"details.last_name\"/>\n   </div> \n   <div class=\"form-group\">\n    <input type=\"submit\" id=\"btnsubmit\" class=\"btn btn-success\" (click)=\"addStudents(details)\" >\n  </div>\n</form>\n</div>\n\n<div class=\"col-md-8\" id=\"table\">\n <table class=\"table table-bordered\">\n  <thead>\n    <tr>\n      <th>Firstname</th>\n      <th>LastName</th>\n      <th>Edit</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor = \"let student of students[0]\">\n      <td>{{student.first_name}}</td>\n      <td>{{student.last_name}}</td>\n      <td><button><a [routerLink] = \"['/updateStudent',student._id]\">Update</a></button><button (click)=\"deleteStudent(student._id)\">Delete</button></td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
+module.exports = "<div class=\"row margin-top-25\" style=\"min-height: 500px;\">\n\n <div class=\"col-md-4\" id=\"form\">\n  <form id=\"user\" method=\"post\" name=\"Contact\">\n      <div class=\"form-group\">\n      <label for=\"Name\">First_Name</label>\n      <input type=\"text\" id=\"name\" name=\"name\" required class=\"form-control\" [(ngModel)]=\"details.first_name\"/>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"last name\">Last_Name</label>\n      <input type=\"text\" id=\"phone\" name=\"phone\" required class=\"form-control\" [(ngModel)]=\"details.last_name\"/>\n    </div> \n    <div class=\"form-group\">\n      <input type=\"submit\" id=\"btnsubmit\" class=\"btn btn-success\" (click)=\"addStudents(details)\" >\n    </div>\n</form>\n</div>\n\n<div class=\"col-md-8\" id=\"table\">\n <table class=\"table table-bordered\">\n  <thead>\n    <tr>\n      <th>Firstname</th>\n      <th>LastName</th>\n      <th>Edit</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor = \"let student of students[0]\">\n      <td>{{student.first_name}}</td>\n      <td>{{student.last_name}}</td>\n      <td><button><a [routerLink] = \"['/updateStudent',student._id]\">Update</a></button><button (click)=\"deleteStudent(student._id)\">Delete</button></td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -1148,7 +1148,6 @@ var PostservicesService = /** @class */ (function () {
         }, function (err) {
             console.log(err);
         });
-        ;
     };
     PostservicesService.prototype.updatePost = function (body) {
         return this.http.put(_config__WEBPACK_IMPORTED_MODULE_3__["config"].apiBaseUrl + "updatepost", body).subscribe(function (res) {

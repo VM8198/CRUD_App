@@ -36,7 +36,7 @@ posts = [];
 	addPosts(details){		
 		this._postService.addPost(details).subscribe(res=>{
 			console.log("RESPONSE From API",res);
-			this.posts[0].push(res);			
+			this.posts.push(res);			
 		},err=>{
 			console.log("ERROR",err);
 		})	

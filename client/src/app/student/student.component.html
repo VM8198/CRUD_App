@@ -2,17 +2,17 @@
 
  <div class="col-md-4" id="form">
   <form id="user" method="post" name="Contact">
+      <div class="form-group">
+      <label for="Name">First_Name</label>
+      <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="details.first_name"/>
+    </div>
     <div class="form-group">
-     <label for="Name">First_Name</label>
-     <input type="text" id="name" name="name" required class="form-control" [(ngModel)]="details.first_name"/>
-   </div>
-   <div class="form-group">
-     <label for="last name">Last_Name</label>
-     <input type="text" id="phone" name="phone" required class="form-control" [(ngModel)]="details.last_name"/>
-   </div> 
-   <div class="form-group">
-    <input type="submit" id="btnsubmit" class="btn btn-success" (click)="addStudents(details)" >
-  </div>
+      <label for="last name">Last_Name</label>
+      <input type="text" id="phone" name="phone" required class="form-control" [(ngModel)]="details.last_name"/>
+    </div> 
+    <div class="form-group">
+      <input type="submit" id="btnsubmit" class="btn btn-success" (click)="addStudents(details)" >
+    </div>
 </form>
 </div>
 

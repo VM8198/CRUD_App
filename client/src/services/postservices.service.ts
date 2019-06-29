@@ -31,7 +31,7 @@ foundPost:any;
 			return this.foundPost = res;
 		},err=>{
 			console.log(err);
-		});;
+		});
 	}
 
 	updatePost(body){
